@@ -1,6 +1,5 @@
 <?php
 
-
 function getConfig( $configPath )
 {
     return json_decode( file_get_contents($configPath), true );
@@ -24,36 +23,7 @@ function getConection( $config )
         die;
     }
 }
-function  getCars( PDO $pdo, $regCostumer )
-{
- 
-    try
-    {
-        if ( $producer )
-        {
-            $smt = $pdo->prepare( "SELECT * FROM `Tentants` WHERE `regCostumer` = :regCostumer" );
-            $smt->bindParam(':regCostumer', $regCostumer);
-        }
-        else
-        {
-            $smt = $pdo->prepare( "SELECT * FROM `Tentatns`" );
-        }
-        $smt->execute();        
-        
-        $result = $smt->fetchAll();
 
-        if ( count( $result ) == 0 )
-        {
-            throw new RuntimeException('A tábla üres');
-        }
-
-        return $result;
-
-    }
-    catch ( RuntimeException $r )
-    {        
-        return false;
-    }
 
 function  getCars( PDO $pdo, $producer )
 {
