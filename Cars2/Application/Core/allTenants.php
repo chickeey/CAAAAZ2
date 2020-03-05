@@ -8,4 +8,4 @@ $pdo = getConection( $config["database"] );
 
 $producers = getTentants( $pdo );
 
-$cars = getCars( $pdo, $producer );
+$cars = getCars( $pdo, $Tentatns );
